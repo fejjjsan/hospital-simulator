@@ -6,7 +6,7 @@ make installShadowDist
 ```
 
 
-#### Run
+### Run
 run from the project directory with args
 
 ```bash
