@@ -19,5 +19,5 @@ gradle run --args "D,X As,I"
 
 
 
-👤 **Artur Lastovskiy**
+👤 ***Artur Lastovskiy***
 Github: [@fejjsan](https://github.com/fejjjsan)
