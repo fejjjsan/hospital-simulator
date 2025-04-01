@@ -1,18 +1,21 @@
-package hospital.simulator.utils;
+package com.testapp.hospital.simulator.utils;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Utils {
 
-    private static final Logger logger = LoggerFactory.getLogger(Utils.class.getName());
-
-    public static void formatResult(List<String> diagnosisCodes) {
-        int f = 0, h = 0, d = 0, t = 0, x = 0;
+    public static String formatResult(List<String> diagnosisCodes) {
+        int f = 0;
+        int h = 0;
+        int d = 0;
+        int t = 0;
+        int x = 0;
         for (String c : diagnosisCodes) {
             switch (c) {
                 case "F" -> f++;
@@ -22,8 +25,7 @@ public class Utils {
                 case "X" -> x++;
             }
         }
-        String result = String.format("F:%d,H:%d,D:%d,T:%d,X:%d", f,h,d,t,x);
-        System.out.println(result);
+        return String.format("F:%d,H:%d,D:%d,T:%d,X:%d", f,h,d,t,x);
     }
 
      public static String buildStringFromInput(String[] input) {
@@ -37,15 +39,24 @@ public class Utils {
             }
         }
         return sb.toString();
-     }
-     public static String firstArgFromInput(String[] input) {
+    }
+    public static String firstArgFromInput(String[] input) {
         return input[0];
-     }
+    }
     public static String secondArgFromInput(String[] input) {
         return input[1];
     }
+    public static boolean hasSecondArg(String[] args) {
+        return args.length == 2;
+    }
 
-     public static List<String> argAsСodesList(String arg) {
-        return new ArrayList<>(Arrays.asList(arg.split(",")));
-     }
+    public static List<String> argAsCodesList(String arg) {
+        return Arrays.asList(arg.split(","));
+    }
+
+    public static String normalizeToUpperCase(String arg) {
+        return arg.toUpperCase();
+    }
+
+
 }
