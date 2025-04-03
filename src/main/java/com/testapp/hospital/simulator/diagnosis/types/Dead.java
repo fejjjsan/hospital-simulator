@@ -1,14 +1,14 @@
-package hospital.simulator.diagnosis.types;
+package com.testapp.hospital.simulator.diagnosis.types;
 
-import hospital.simulator.Drugs;
-import hospital.simulator.diagnosis.CureStrategy;
-import hospital.simulator.diagnosis.Diagnosis;
+import com.testapp.hospital.simulator.Drugs;
+import com.testapp.hospital.simulator.diagnosis.CureStrategy;
+import com.testapp.hospital.simulator.diagnosis.Diagnosis;
 
 import java.util.Set;
 
 public class Dead implements Diagnosis, CureStrategy<Drugs> {
 
-    private static final String CODE = "X";
+    private static final String DIAGNOSIS_CODE = "X";
 
     @Override
     public Diagnosis cure(Set<Drugs> drugs) {
@@ -17,7 +17,7 @@ public class Dead implements Diagnosis, CureStrategy<Drugs> {
 
     @Override
     public String diagnosisCode() {
-        return CODE;
+        return DIAGNOSIS_CODE;
     }
 
     @Override

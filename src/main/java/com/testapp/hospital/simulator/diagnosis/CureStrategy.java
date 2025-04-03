@@ -1,6 +1,4 @@
-package hospital.simulator.diagnosis;
-
-import hospital.simulator.Drugs;
+package com.testapp.hospital.simulator.diagnosis;
 
 import java.util.Set;
 

@@ -1,4 +1,4 @@
-package hospital.simulator.diagnosis;
+package com.testapp.hospital.simulator.diagnosis;
 
 public class DiagnosisFactory {
     public static Diagnosis getDiagnosis(DiagnosisType type) {

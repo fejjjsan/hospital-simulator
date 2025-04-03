@@ -1,7 +1,10 @@
-package hospital.simulator.diagnosis;
+package com.testapp.hospital.simulator.diagnosis;
 
-
-import hospital.simulator.diagnosis.types.*;
+import com.testapp.hospital.simulator.diagnosis.types.Fever;
+import com.testapp.hospital.simulator.diagnosis.types.Tuberculosis;
+import com.testapp.hospital.simulator.diagnosis.types.Healthy;
+import com.testapp.hospital.simulator.diagnosis.types.Diabetes;
+import com.testapp.hospital.simulator.diagnosis.types.Dead;
 
 import java.util.ArrayList;
 import java.util.List;

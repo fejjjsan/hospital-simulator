@@ -1,6 +1,6 @@
-package hospital.simulator;
+package com.testapp.hospital.simulator;
 
-import hospital.simulator.diagnosis.Diagnosis;
+import com.testapp.hospital.simulator.diagnosis.Diagnosis;
 public class Patient {
     private Diagnosis diagnosis;
 
