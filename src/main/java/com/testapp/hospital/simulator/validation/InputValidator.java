@@ -47,4 +47,6 @@ public class InputValidator {
         return drugNamesArgumentsValidator.validate(argNormalized);
     }
 
+
+
 }
