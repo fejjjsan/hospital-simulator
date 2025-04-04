@@ -1,24 +1,22 @@
 package com.testapp.hospital.simulator;
 
-
 import com.testapp.hospital.simulator.diagnosis.Diagnosis;
 import com.testapp.hospital.simulator.diagnosis.DiagnosisFactory;
 import com.testapp.hospital.simulator.diagnosis.DiagnosisType;
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
 
 import java.util.Optional;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class FlyingSpaghettiMonster {
     private static final Diagnosis HEALTHY =
             DiagnosisFactory.getDiagnosis(DiagnosisType.valueOf("H"));
 
+    private FlyingSpaghettiMonster() {
+    }
     /**
-     * Creates FlyingSpaghettiMonster if one-in-a-million chance occurred;
+     * Creates FlyingSpaghettiMonster if chanceEvaluater returns true;
      */
-    public static Optional<FlyingSpaghettiMonster> create() {
-        if (OneInAMillionChance.chanceOccurred()) {
+    public static Optional<FlyingSpaghettiMonster> create(ChanceEvaluater chanceEvaluater) {
+        if (chanceEvaluater.test()) {
             return Optional.of(new FlyingSpaghettiMonster());
         }
         return Optional.empty();

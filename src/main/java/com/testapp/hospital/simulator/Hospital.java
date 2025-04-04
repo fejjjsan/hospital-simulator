@@ -13,7 +13,6 @@ import lombok.Getter;
 @Getter
 public class Hospital {
 
-
     private final ArrayList<Patient> patients;
 
     public static Hospital getInstance() {
