@@ -1,9 +1,10 @@
-package com.testapp.hospital.simulator;
+package com.testapp.hospital.simulator.core;
 
+import com.testapp.hospital.simulator.chance.ChanceEvaluater;
+import com.testapp.hospital.simulator.healing.FlyingSpaghettiMonster;
 import com.testapp.hospital.simulator.utils.ArgumentsParser;
 import com.testapp.hospital.simulator.utils.PrintUtils;
 import com.testapp.hospital.simulator.utils.Utils;
-import com.testapp.hospital.simulator.validation.InputValidator;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -19,19 +20,14 @@ import java.util.Optional;
 public class HospitalSimulation {
 
     private final Hospital hospital;
-    private final InputValidator validator;
     private final ChanceEvaluater chance;
 
     public void beginSimulation(String[] args) {
 
-        if (!validator.validateInput(args)) {
-            return;
-        }
-
         hospital.addPatients(ArgumentsParser.diagnosisListFromArgument(args));
         hospital.administerDrugs(ArgumentsParser.drugsListFromArgument(args));
 
-        Optional<FlyingSpaghettiMonster> monster = isMonsterHere();
+        Optional<FlyingSpaghettiMonster> monster = FlyingSpaghettiMonster.create(chance);
         log.debug("MONSTER IS HERE: {}", monster.isPresent());
         Optional<Patient> deadPatient = hospital.getFirstDeadPatient();
         log.debug("DEAD PATIENT IS PRESENT: {}", deadPatient.isPresent());
@@ -47,7 +43,4 @@ public class HospitalSimulation {
         PrintUtils.printResultOfTreatment(formatResult);
     }
 
-    public Optional<FlyingSpaghettiMonster> isMonsterHere() {
-        return FlyingSpaghettiMonster.create(chance);
-    }
 }

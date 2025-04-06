@@ -1,4 +1,4 @@
-package com.testapp.hospital.simulator;
+package com.testapp.hospital.simulator.core;
 
 import com.testapp.hospital.simulator.diagnosis.Diagnosis;
 import lombok.Getter;

@@ -1,6 +1,6 @@
 package com.testapp.hospital.simulator.validation;
 
-import com.testapp.hospital.simulator.Drugs;
+import com.testapp.hospital.simulator.healing.Drugs;
 import com.testapp.hospital.simulator.utils.Utils;
 import lombok.extern.slf4j.Slf4j;
 

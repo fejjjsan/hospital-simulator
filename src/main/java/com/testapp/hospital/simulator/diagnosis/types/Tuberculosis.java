@@ -1,6 +1,6 @@
 package com.testapp.hospital.simulator.diagnosis.types;
 
-import com.testapp.hospital.simulator.Drugs;
+import com.testapp.hospital.simulator.healing.Drugs;
 import com.testapp.hospital.simulator.diagnosis.CureStrategy;
 import com.testapp.hospital.simulator.diagnosis.DiagnosisFactory;
 import com.testapp.hospital.simulator.diagnosis.DiagnosisType;

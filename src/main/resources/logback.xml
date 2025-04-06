@@ -5,7 +5,7 @@
         </encoder>
     </appender>
 
-    <logger name="com.testapp.hospital.simulator.App" level="DEBUG" additivity="false">
+    <logger name="com.testapp.hospital.simulator.Main" level="DEBUG" additivity="false">
         <appender-ref ref="CONSOLE" />
     </logger>
 

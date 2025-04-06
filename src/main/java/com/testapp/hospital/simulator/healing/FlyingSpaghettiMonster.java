@@ -1,5 +1,7 @@
-package com.testapp.hospital.simulator;
+package com.testapp.hospital.simulator.healing;
 
+import com.testapp.hospital.simulator.core.Patient;
+import com.testapp.hospital.simulator.chance.ChanceEvaluater;
 import com.testapp.hospital.simulator.diagnosis.Diagnosis;
 import com.testapp.hospital.simulator.diagnosis.DiagnosisFactory;
 import com.testapp.hospital.simulator.diagnosis.DiagnosisType;
@@ -10,13 +12,11 @@ public class FlyingSpaghettiMonster {
     private static final Diagnosis HEALTHY =
             DiagnosisFactory.getDiagnosis(DiagnosisType.valueOf("H"));
 
-    private FlyingSpaghettiMonster() {
-    }
     /**
      * Creates FlyingSpaghettiMonster if chanceEvaluater returns true;
      */
     public static Optional<FlyingSpaghettiMonster> create(ChanceEvaluater chanceEvaluater) {
-        if (chanceEvaluater.test()) {
+        if (chanceEvaluater.isChanceOccurred()) {
             return Optional.of(new FlyingSpaghettiMonster());
         }
         return Optional.empty();
