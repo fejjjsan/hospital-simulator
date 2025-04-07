@@ -1,4 +1,4 @@
-package com.testapp.hospital.simulator;
+package com.testapp.hospital.simulator.core;
 
 import com.testapp.hospital.simulator.diagnosis.CureStrategy;
 import com.testapp.hospital.simulator.diagnosis.Diagnosis;
@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Set;
 
+import com.testapp.hospital.simulator.healing.Drugs;
 import lombok.Getter;
 
 @Getter
 public class Hospital {
-
 
     private final ArrayList<Patient> patients;
 

@@ -10,7 +10,6 @@ public class PrintUtils {
     public static void printResultOfTreatment(String result) {
         System.out.println(result);
     }
-
     public static void printNoInputProvided() {
         System.out.println("Error: No input provided");
     }

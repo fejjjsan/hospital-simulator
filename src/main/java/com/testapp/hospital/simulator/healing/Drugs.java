@@ -1,4 +1,4 @@
-package com.testapp.hospital.simulator;
+package com.testapp.hospital.simulator.healing;
 
 import java.util.ArrayList;
 import java.util.List;

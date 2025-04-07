@@ -1,42 +1,36 @@
-package com.testapp.hospital.simulator;
+package com.testapp.hospital.simulator.core;
 
+import com.testapp.hospital.simulator.chance.ChanceEvaluater;
+import com.testapp.hospital.simulator.healing.FlyingSpaghettiMonster;
 import com.testapp.hospital.simulator.utils.ArgumentsParser;
 import com.testapp.hospital.simulator.utils.PrintUtils;
 import com.testapp.hospital.simulator.utils.Utils;
-import com.testapp.hospital.simulator.validation.DrugNamesValidator;
-import com.testapp.hospital.simulator.validation.DiagnosesNamesValidator;
-import com.testapp.hospital.simulator.validation.InputValidator;
-import com.testapp.hospital.simulator.validation.RegexInputValidator;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Optional;
 
 @Slf4j
-public class App {
+@Builder
+@Getter
+@Setter
+public class HospitalSimulation {
 
-    public static void main(String[] args) {
+    private final Hospital hospital;
+    private final ChanceEvaluater chance;
 
-        var validator = InputValidator.builder()
-                .regexInputArgumentsValidator(new RegexInputValidator())
-                .diagnosesNamesArgumentsValidator(new DiagnosesNamesValidator())
-                .drugNamesArgumentsValidator(new DrugNamesValidator())
-                .build();
+    public void beginSimulation(String[] args) {
 
-        if (!validator.validateInput(args)) {
-            return;
-        }
-
-        var hospital = Hospital.getInstance();
         hospital.addPatients(ArgumentsParser.diagnosisListFromArgument(args));
         hospital.administerDrugs(ArgumentsParser.drugsListFromArgument(args));
 
-
-        Optional<FlyingSpaghettiMonster> monster = FlyingSpaghettiMonster.create();
+        Optional<FlyingSpaghettiMonster> monster = FlyingSpaghettiMonster.create(chance);
         log.debug("MONSTER IS HERE: {}", monster.isPresent());
         Optional<Patient> deadPatient = hospital.getFirstDeadPatient();
         log.debug("DEAD PATIENT IS PRESENT: {}", deadPatient.isPresent());
-
 
         if (monster.isPresent() && deadPatient.isPresent()) {
             Patient patient = deadPatient.get();
@@ -47,7 +41,6 @@ public class App {
         var treatmentResults = hospital.getTreatmentResults();
         var formatResult = Utils.formatResult(treatmentResults);
         PrintUtils.printResultOfTreatment(formatResult);
-
     }
 
 }

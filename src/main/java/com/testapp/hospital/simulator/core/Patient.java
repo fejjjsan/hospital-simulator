@@ -1,6 +1,9 @@
-package com.testapp.hospital.simulator;
+package com.testapp.hospital.simulator.core;
 
 import com.testapp.hospital.simulator.diagnosis.Diagnosis;
+import lombok.Getter;
+
+@Getter
 public class Patient {
     private Diagnosis diagnosis;
 
@@ -10,10 +13,6 @@ public class Patient {
 
     public static Patient newInstance(Diagnosis d) {
         return new Patient(d);
-    }
-
-    public Diagnosis getDiagnosis() {
-        return  diagnosis;
     }
 
     public void setDiagnosis(Diagnosis diagnosis) {
